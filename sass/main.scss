@@ -51,12 +51,392 @@ body {
 		&::before {
 			top: 27px;
 			width: 30%;
-            transition-delay: 0.1s;
+			transition-delay: 0.1s;
 		}
 	}
 	&:hover {
-		.burger-btn__bars::after, .burger-btn__bars::before{
-            width: 100%;
-        }
+		.burger-btn__bars::after,
+		.burger-btn__bars::before {
+			width: 100%;
+		}
+	}
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+	background-image: $blue-gradient-solid;
+	transform: translateX(100%);
+	z-index: 100;
+	transition: 0.5s;
+
+	&__item {
+		text-align: center;
+		position: relative;
+		display: block;
+		margin: 0.5em 0;
+		color: $pure-white;
+		font-size: 4.4rem;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-weight: 300;
+		padding: 0.5em 0.5em;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 3px;
+			height: 100%;
+			transform: scaleY(0);
+			background-color: $pure-white;
+			transition: transform 0.4s;
+		}
+	}
+	&__item:hover::before {
+		transform: scaleY(1);
+	}
+}
+.active {
+	transform: translate(0);
+}
+
+@keyframes navItemsAnimation {
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+.nav-items-animation {
+	animation: navItemsAnimation 1s;
+	animation-delay: 1s;
+}
+
+//HEADER
+.header {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 2em;
+	height: 75vh;
+	text-align: center;
+	color: $pure-white;
+	@include heroImages('../img/palm-3172367_640.jpg');
+	background-attachment: scroll;
+
+	&__heading {
+		font-family: 'Dancing Script', 'cursive';
+		font-size: 4, 8rem;
+		font-weight: 300;
+	}
+	&__text {
+		font-size: 1.4rem;
+	}
+	&__btn {
+		background-color: $pure-white;
+		margin-top: 2em;
+		border-radius: 8px;
+		cursor: pointer;
+		border: none;
+		padding: 0.8em 1.6em;
+		a {
+			text-decoration: none;
+			color: $dark;
+			font-size: 1.4rem;
+			text-transform: uppercase;
+		}
+		&::before {
+			background-color: $light-white;
+		}
+	}
+}
+
+//MAIN
+//DREAMS SECTION
+.dreams {
+	&__box {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+	}
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+	}
+	&__title {
+		margin-bottom: 0.5em;
+	}
+	&__text {
+		font-size: 1.4rem;
+	}
+}
+
+//HERO-IMG
+.hero-img {
+	position: relative;
+	padding: 10em 2em;
+	@include heroImages('../img/tahiti-small.jpg');
+	text-align: center;
+	color: $pure-white;
+	overflow: hidden;
+	&__title {
+		font-family: 'Dancing Script', 'cursive';
+		font-size: 4.8rem;
+		margin-bottom: 0.5em;
+	}
+	&__text {
+		padding: 1em 0em;
+		font-size: 2rem;
+	}
+}
+
+//ISLANDS
+.islands {
+	&__card {
+		position: relative;
+		margin: 1em 0;
+		height: 450px;
+		color: $pure-white;
+		text-align: center;
+		perspective: 1000px;
+
+		&:hover {
+			.islands__card-img {
+				transform: rotateY(-180deg);
+				opacity: 0;
+			}
+			.islands__card-info {
+				transform: rotateY(0);
+				opacity: 1;
+			}
+		}
+
+		&-img {
+			padding: 2em;
+			height: 100%;
+			border-radius: 10px;
+			background-size: cover;
+			transition: transform 1s, opacity 1s;
+			&--first {
+				background-image: $light-blue-gradient, url('../img/card1.jpg');
+			}
+			&--second {
+				background-image: $blue-gradient, url('../img/card2.jpg');
+			}
+			&--third {
+				background-image: $purple-gradient, url('../img/card3.jpg');
+			}
+			&-title {
+				font-family: 'Dancing script', 'cursive';
+				font-size: 2.8rem;
+			}
+			&-info {
+				position: absolute;
+				bottom: 30px;
+				right: 30px;
+				font-size: 2rem;
+			}
+			i {
+				font-size: 3rem;
+				padding-right: 20px;
+			}
+		}
+		&-info {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			border-radius: 10px;
+			opacity: 0;
+			transform: rotateY(180deg);
+			transition: opacity 1s, transform 1s;
+			background-image: $light-blue-gradient-solid;
+			&-title {
+				@include center;
+				top: 1.2em;
+				font-family: 'Dancing Script', 'cursive';
+				font-size: 3rem;
+			}
+			&-list {
+				margin: 0 auto;
+				width: 70%;
+				list-style: none;
+				&-item {
+					padding: 1em;
+					border-bottom: 1px solid $light-white;
+					font-size: 1.4rem;
+					&:first-child {
+						margin-top: 5em;
+					}
+					&:last-child {
+						border-bottom: none;
+					}
+				}
+			}
+			&-btn {
+				@include center;
+				bottom: 2em;
+				padding: 1em;
+				border-radius: 10px;
+				width: 80%;
+				border: none;
+				background-color: $green-color;
+				cursor: pointer;
+				&::before {
+					background-color: $green-color-hover;
+				}
+			}
+		}
+	}
+}
+
+// ==================================
+// MEDIA
+// ==================================
+@media (min-width: 576px) {
+	.dreams {
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+
+			&-text {
+				width: 55%;
+
+				&--right {
+					text-align: right;
+				}
+			}
+			&-img {
+				width: 40%;
+				&--right {
+					order: 1;
+				}
+			}
+		}
+		&__img {
+			margin-bottom: 0;
+			max-height: 300px;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.white-block {
+		width: 45%;
+		height: 50px;
+	}
+	.header {
+		&__heading {
+			font-size: 6.6rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+		&__btn {
+			a {
+				font-size: 1.6rem;
+			}
+		}
+	}
+	.dreams {
+		&__text {
+			font-size: 1.8rem;
+		}
+		&__title {
+			font-size: 2.5rem;
+		}
+	}
+	.hero-img {
+		padding: 30rem 2em;
+		hr {
+			margin: 0 auto;
+			width: 70%;
+		}
+		&__title {
+			font-size: 5rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+	.islands {
+		&__cards {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		&__card {
+			margin: 1em;
+			width: 45%;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.burger-btn {
+		top: 50px;
+		right: 50px;
+	}
+	.header {
+		background-image: $blue-gradient, url('../img/palm-3172367_1920.jpg');
+		&__heading {
+			font-size: 10rem;
+		}
+	}
+	.dreams {
+		&__box {
+			margin: 5em 0;
+			&__text {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				margin-bottom: 2.5em;
+			}
+		}
+		&__title {
+			font-size: 3.6rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+	.hero-img {
+		background-image: $blue-gradient, url('../img/tahiti-big.jpg');
+		padding: 40rem 2em;
+		hr {
+			margin: 0 auto;
+			width: 70%;
+			max-width: 900px;
+		}
+		&__title {
+			font-size: 5rem;
+		}
+		&__text {
+			font-size: 2.2rem;
+		}
+	}
+}
+
+@media (min-width: 1100px) {
+	.islands {
+		&__card {
+			margin: 1em;
+			width: 30%;
+		}
 	}
 }
