@@ -138,6 +138,12 @@ body {
   width: 100%;
 }
 
+.black-burger-bars,
+.black-burger-bars::after,
+.black-burger-bars::before {
+  background-color: #2e2e2e;
+}
+
 .nav {
   position: fixed;
   top: 0;
@@ -358,7 +364,7 @@ body {
   margin-top: 5em;
 }
 .islands__card-info-list-item:last-child {
-  border-bottom: none;
+  border: none;
 }
 .islands__card-info-btn {
   position: absolute;
@@ -374,6 +380,189 @@ body {
 }
 .islands__card-info-btn::before {
   background-color: #0fe29c;
+}
+
+.offers {
+  position: relative;
+  background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/oferta-hero-small.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+.offers .section-heading {
+  color: #fff;
+}
+.offers__option {
+  margin: 1em 0;
+  box-shadow: 5px 5px 10px rgba(46, 46, 46, 0.18);
+  background-color: #fff;
+  overflow: hidden;
+}
+.offers__option-img {
+  width: 100%;
+  transition: transform 0.3s;
+}
+.offers__option-img:hover {
+  transform: scale(1.1);
+}
+.offers__option-info {
+  padding: 2em;
+}
+.offers__option-heading {
+  margin-bottom: 1em;
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+.offers__option-text {
+  margin-bottom: 0.5em;
+  font-size: 1.3rem;
+  color: #2e2e2e;
+}
+.offers__option-btn {
+  margin-top: 1em;
+  padding: 0.8em;
+  width: 100%;
+  color: #fff;
+  background-color: #1755e7;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.offers__option-btn::before {
+  background-color: #164dcc;
+}
+
+.reviews__box {
+  position: relative;
+  margin: 2em;
+  padding: 2em;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px rgba(46, 46, 46, 0.18);
+  transition: transform 0.3s;
+}
+.reviews__box:hover {
+  transform: scale(0.95);
+}
+.reviews__box-img {
+  position: absolute;
+  top: 8%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+}
+.reviews__box-img img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+.reviews__box-quote {
+  margin-bottom: 1em;
+  font-size: 3rem;
+  color: #1755e7;
+}
+.reviews__box-text {
+  font-size: 1.4rem;
+  margin-bottom: 1em;
+  color: #2e2e2e;
+}
+
+.contact {
+  position: relative;
+  overflow: hidden;
+  background-color: #eee;
+}
+.contact .white-block-left {
+  background-color: #2e2e2e;
+}
+.contact__form, .contact__form-top {
+  display: flex;
+  flex-direction: column;
+}
+.contact__form-label {
+  margin-bottom: 0.5em;
+  text-transform: uppercase;
+}
+.contact__form-input {
+  margin-bottom: 2em;
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  box-shadow: 2px 2px 10px rgba(46, 46, 46, 0.4);
+}
+.contact__form-textarea {
+  margin-bottom: 2em;
+  padding: 0.6em 1.2em;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  box-shadow: 2px 2px 10px rgba(46, 46, 46, 0.4);
+  resize: vertical;
+  min-height: 150px;
+  max-height: 400px;
+}
+.contact__form-btn {
+  align-self: flex-end;
+  padding: 1em 4em;
+  width: 100%;
+  max-width: 300px;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  background-color: #1755e7;
+  cursor: pointer;
+}
+.contact__form-btn::before {
+  background-color: #164dcc;
+}
+
+.footer {
+  background-color: #2e2e2e;
+}
+.footer__boxes {
+  padding: 2em;
+  display: flex;
+  justify-content: center;
+}
+.footer__box {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.footer__box-desktop {
+  display: none;
+}
+.footer__box i {
+  font-size: 3rem;
+  color: #eee;
+  padding: 0.5em 0.3em;
+  transition: color 0.3s;
+}
+.footer__box i:hover {
+  color: #1755e7;
+}
+.footer__box-title {
+  padding: 1em;
+  color: #eee;
+  text-transform: uppercase;
+}
+.footer__box-text {
+  color: #eee;
+}
+.footer__box-list {
+  list-style-type: none;
+}
+.footer__box-list-item {
+  text-align: center;
+  color: #eee;
+  padding: 0.5em;
+}
+.footer__bottom-text {
+  text-align: center;
+  color: #eee;
+  padding: 2em;
 }
 
 @media (min-width: 576px) {
@@ -396,6 +585,31 @@ body {
   .dreams__img {
     margin-bottom: 0;
     max-height: 300px;
+  }
+  .offers__option {
+    display: flex;
+    margin: 2em 0;
+    width: 100%;
+  }
+  .offers__option-img {
+    width: 50%;
+    height: auto;
+  }
+  .offers__option-img--right {
+    order: 1;
+  }
+  .offers__option-info {
+    background-color: #fff;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .offers__option-heading {
+    font-size: 3.6rem;
+  }
+  .offers__option-btn {
+    padding: 1em;
   }
 }
 @media (min-width: 768px) {
@@ -481,6 +695,22 @@ body {
   }
   .hero-img__text {
     font-size: 2.2rem;
+  }
+  .offers {
+    background-image: linear-gradient(45deg, rgba(20, 105, 241, 0.75), rgba(42, 10, 184, 0.75)), url("../img/oferta-hero-big.jpg");
+  }
+  .offers__option-text {
+    font-size: 1.5rem;
+  }
+  .footer__boxes {
+    display: flex;
+    justify-content: space-between;
+  }
+  .footer__box {
+    width: 30%;
+  }
+  .footer__box-desktop {
+    display: inline-block;
   }
 }
 @media (min-width: 1100px) {

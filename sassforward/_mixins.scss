@@ -21,3 +21,12 @@
 	left: 50%;
 	transform: translateX(-50%);
 }
+
+@mixin contactForm {
+	margin-bottom: 2em;
+	padding: 0.6em 1.2em;
+	border: none;
+	border-radius: 10px;
+	font-size: 1.6rem;
+	box-shadow: 2px 2px 10px rgba(46,46,46,0.4);
+}
